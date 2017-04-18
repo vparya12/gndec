@@ -5,6 +5,11 @@ import javax.annotation.ManagedBean;
 @ManagedBean
 public class UserDetails {
 	private String name;
+	private String password;
+	private String dob;
+	private long mobileNumber;
+	private String emailId;
+	private String gender;
 	public String getName() {
 		return name;
 	}
@@ -41,12 +46,6 @@ public class UserDetails {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	private String password;
-	private String dob;
-	private long mobileNumber;
-	private String emailId;
-	private String gender;
-
 	
 
 }
