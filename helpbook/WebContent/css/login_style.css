@@ -1,4 +1,4 @@
-html, body, div, span, applet, object, iframe,
+#vedLogin, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -24,7 +24,7 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
-body {
+#vedLogin {
   line-height: 1;
 }
 
@@ -105,11 +105,11 @@ table {
  * Licensed under the MIT License:
  * http://www.opensource.org/licenses/mit-license.php
  */
-body, .login-submit, .login-submit:before, .login-submit:after {
+#vedLogin, .login-submit, .login-submit:before, .login-submit:after {
   background: #373737 url("../img/bg.png") 0 0 repeat;
 }
 
-body {
+#vedLogin {
   font: 14px/20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #404040;
 }
@@ -285,4 +285,13 @@ label {
 }
 .lt-ie9 .about {
   background: #313131;
+}
+
+/*VedLogin Transition*/
+#vedLogin{
+transition: margin 1s ease-in-out , background 1s ease-in-out;
+	-moz-transition: margin 1s ease-in-out, background 1s ease-in-out;;
+	-webkit-transition: margin 1s ease-in-out, background 1s ease-in-out;;
+	-o-transition: margin 1s ease-in-out, background 1s ease-in-out;;
+	-ms-transition: margin 1s ease-in-out;
 }

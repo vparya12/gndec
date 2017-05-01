@@ -1,6 +1,8 @@
 package helpbook.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,12 +27,17 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String email=request.getParameter("userEmail");
-		String password=request.getParameter("userPassword");
-		if(email=="vparya12@gmail.com" && password=="vparya12"){
-			
-			response.sendRedirect("./jsp/userlogin.jsp");
-		}
+		String email=request.getParameter("login");
+		String password=request.getParameter("password");
+		PrintWriter out = response.getWriter();
+		if(email.equals("vparya12@gmail.com") && password.equals("vparya12")){
+			response.sendRedirect("home_page.html");
+
+	
+	//out.print(email+password);
+}else{
+	out.print("Not Match");
+}
 	}
 
 }
