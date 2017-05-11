@@ -1,5 +1,7 @@
 package helpbook.servlet;
 
+import helpbook.comman.Connect;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -14,8 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
+	private static final long serialVersionUID = 1L;  
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -30,14 +31,16 @@ public class LoginServlet extends HttpServlet {
 		String email=request.getParameter("login");
 		String password=request.getParameter("password");
 		PrintWriter out = response.getWriter();
-		if(email.equals("vparya12@gmail.com") && password.equals("vparya12")){
+		Connect cObj= new Connect();
+		boolean flag=cObj.checkLogin(email, password);
+//		if(email.equals("vparya12@gmail.com") && password.equals("vparya12")){
+//			response.sendRedirect("home_page.html");
+		if(flag){
 			response.sendRedirect("home_page.html");
-
-	
 	//out.print(email+password);
-}else{
-	out.print("Not Match");
-}
+		}else{
+			out.print("Not Match");
+		}
 	}
 
 }

@@ -32,7 +32,7 @@ public class UserRegistrationServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		UserDetails userDetails = new UserDetails();
-		userDetails.setName(request.getParameter("userName"));
+		userDetails.setFirstName(request.getParameter("userName"));
 		userDetails.setEmailId(request.getParameter("userEmail"));
 		userDetails.setPassword(request.getParameter("userPassword"));
 		userDetails.setDob(request.getParameter("userDOJ"));

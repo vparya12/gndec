@@ -1,6 +1,11 @@
 package helpbook.servlet;
 
+import helpbook.bean.UserDetails;
+import helpbook.comman.Connect;
+
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,19 +26,28 @@ public class RegistrationServlet extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		UserDetails user = new UserDetails();
+		user.setFirstName(request.getParameter("firstName"));
+		user.setLastName(request.getParameter("lastName"));
+		user.setEmailId(request.getParameter("email"));
+		user.setPassword(request.getParameter("password"));
+		user.setCollege(request.getParameter("college"));
+		user.setMobileNumber(Long.parseLong(request.getParameter("mobile")));
+		user.setDob(request.getParameter("dob"));
+		user.setGender(request.getParameter("gender"));
+		
+		Connect cObj = new Connect();
+		boolean flag=cObj.registerUser(user);
+		PrintWriter out =response.getWriter();
+		if(flag){
+			response.sendRedirect("success.jsp");
+		}else{
+			out.print("Sorry for the Technical Hindrence");
+		}
 	}
 
 }
